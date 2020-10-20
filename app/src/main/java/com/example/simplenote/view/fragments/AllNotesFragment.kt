@@ -32,7 +32,7 @@ class AllNotesFragment : Fragment() {
         allNotesViewModel = ViewModelProvider(this).get(AllNotesViewModel::class.java)
         allNotesRecyclerView = view.all_notes_recyclerview
 
-
+        setData()
 
         return view
     }
@@ -40,7 +40,7 @@ class AllNotesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setData()
+
 
         all_notes_add_btn.setOnClickListener {
             findNavController().navigate(R.id.action_allNotesFragment_to_detailNoteFragment)
