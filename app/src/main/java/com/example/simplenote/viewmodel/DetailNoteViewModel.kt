@@ -36,12 +36,5 @@ class DetailNoteViewModel(application: Application) : AndroidViewModel(applicati
         val noteDao = NoteDaoImpl.getDatabaseInstance(application).notesDao()
         repositoryImpl = RepositoryImpl(noteDao)
     }
-//
-//    fun saveNote(noteTitle: String, noteText: String, noteDate: Date, oldNote: NoteModel?) {
-//
-//       val note = oldNote ?: NoteModel(0, noteTitle,noteText,repositoryImpl.dateFormat().format(noteDate).toString())
-//
-//        repositoryImpl.saveNote(note)
-//    }
 
 }

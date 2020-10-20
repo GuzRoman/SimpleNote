@@ -8,13 +8,12 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
 import com.example.simplenote.R
 import com.example.simplenote.model.database.dbmodels.NoteModel
 import com.example.simplenote.viewmodel.AllNotesViewModel
 import com.example.simplenote.viewmodel.adapter.AllNotesAdapter
+import kotlinx.android.synthetic.main.all_notes_fragment.*
 import kotlinx.android.synthetic.main.all_notes_fragment.view.*
 
 class AllNotesFragment : Fragment() {
@@ -33,10 +32,20 @@ class AllNotesFragment : Fragment() {
         allNotesViewModel = ViewModelProvider(this).get(AllNotesViewModel::class.java)
         allNotesRecyclerView = view.all_notes_recyclerview
 
-        setData()
 
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setData()
+
+        all_notes_add_btn.setOnClickListener {
+            findNavController().navigate(R.id.action_allNotesFragment_to_detailNoteFragment)
+        }
+
     }
 
     private fun setData() {

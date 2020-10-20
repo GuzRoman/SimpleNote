@@ -16,10 +16,14 @@ class AllNotesViewModel(application: Application) : AndroidViewModel(application
     private val repositoryImpl: RepositoryImpl
     var notesList = MutableLiveData<List<NoteModel>>()
 
+
+
     init {
         val noteDao = NoteDaoImpl.getDatabaseInstance(application).notesDao()
         repositoryImpl = RepositoryImpl(noteDao)
     }
+
+
 
     fun getNotes() {
         repositoryImpl.readAllNotes()

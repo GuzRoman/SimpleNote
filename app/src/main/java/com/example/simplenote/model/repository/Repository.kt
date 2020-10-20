@@ -1,6 +1,5 @@
 package com.example.simplenote.model.repository
 
-import androidx.lifecycle.LiveData
 import com.example.simplenote.model.database.dbmodels.NoteModel
 import io.reactivex.Completable
 import io.reactivex.Single
