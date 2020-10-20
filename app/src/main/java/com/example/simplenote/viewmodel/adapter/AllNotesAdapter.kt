@@ -34,7 +34,6 @@ class AllNotesAdapter: RecyclerView.Adapter<AllNotesAdapter.AllNotesViewHolder>(
     }
 
     fun setData(setNotes: List<NoteModel>){
-        notes.clear()
         notes.addAll(setNotes)
         notifyDataSetChanged()
     }

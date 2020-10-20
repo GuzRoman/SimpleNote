@@ -1,19 +1,16 @@
 package com.example.simplenote.model.repository
 
+import androidx.lifecycle.LiveData
 import com.example.simplenote.model.database.dbmodels.NoteModel
-import io.reactivex.Completable
-import io.reactivex.Single
 
 interface Repository {
 
-    fun readAllNotes(): Single<List<NoteModel>>
+    suspend fun readNote(noteId: Int) : NoteModel
 
-    fun readNote(noteId: Int) : Single<NoteModel>
+    suspend fun deleteNote(note: NoteModel)
 
-    fun deleteNote(note: NoteModel) : Completable
+    suspend fun updateNote(note: NoteModel)
 
-    fun updateNote(note: NoteModel)
-
-    fun saveNote(note: NoteModel) : Completable
+    suspend fun saveNote(note: NoteModel)
 
 }

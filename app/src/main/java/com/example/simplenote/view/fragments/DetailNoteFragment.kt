@@ -1,19 +1,16 @@
 package com.example.simplenote.view.fragments
 
-import androidx.lifecycle.ViewModelProviders
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-
 import com.example.simplenote.R
 import com.example.simplenote.viewmodel.DetailNoteViewModel
 import kotlinx.android.synthetic.main.detail_note_fragment.*
-import kotlinx.android.synthetic.main.detail_note_fragment.view.*
 import java.util.*
 
 class DetailNoteFragment : Fragment() {
@@ -44,7 +41,7 @@ class DetailNoteFragment : Fragment() {
     }
 
 
-    private fun saveNote(noteTitle: String, noteText: String, noteTime: Date){
+    private fun saveNote(noteTitle: String, noteText: String, noteTime: Date) {
         viewModel.saveNote(noteTitle, noteText, noteTime, null)
     }
 
