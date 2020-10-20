@@ -16,7 +16,8 @@ class DetailNoteViewModel(application: Application) : AndroidViewModel(applicati
 
     private val compositeDisposable = CompositeDisposable()
 
-    fun saveNote(note: NoteModel){
+    fun saveNote(noteTitle: String, noteText: String, noteDate: Date, oldNote: NoteModel?){
+        val note = oldNote ?: NoteModel(0, noteTitle,noteText,repositoryImpl.dateFormat().format(noteDate).toString())
         repositoryImpl.saveNote(note).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({

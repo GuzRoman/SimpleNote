@@ -2,12 +2,10 @@ package com.example.simplenote.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.simplenote.model.database.dao.NoteDaoImpl
 import com.example.simplenote.model.database.dbmodels.NoteModel
 import com.example.simplenote.model.repository.RepositoryImpl
-import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
