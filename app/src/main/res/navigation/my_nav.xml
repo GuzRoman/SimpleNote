@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/allNotesFragment">
+
+    <fragment
+        android:id="@+id/allNotesFragment"
+        android:name="com.example.simplenote.view.fragments.AllNotesFragment"
+        android:label="all_notes_fragment"
+        tools:layout="@layout/all_notes_fragment" >
+        <action
+            android:id="@+id/action_allNotesFragment_to_detailNoteFragment"
+            app:destination="@id/detailNoteFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailNoteFragment"
+        android:name="com.example.simplenote.view.fragments.DetailNoteFragment"
+        android:label="detail_note_fragment"
+        tools:layout="@layout/detail_note_fragment" >
+        <action
+            android:id="@+id/action_detailNoteFragment_to_allNotesFragment"
+            app:destination="@id/allNotesFragment" />
+    </fragment>
+</navigation>
