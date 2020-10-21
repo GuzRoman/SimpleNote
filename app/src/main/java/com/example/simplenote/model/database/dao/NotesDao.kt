@@ -8,14 +8,11 @@ import com.example.simplenote.model.database.dbmodels.NoteModel
 @Dao
 interface NotesDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun saveNotes(note: NoteModel)
 
     @Query("SELECT * FROM ${NoteModel.TABLE_NAME}")
     fun getAllNotes(): LiveData<List<NoteModel>>
-
-    @Query("SELECT * FROM ${NoteModel.TABLE_NAME} WHERE ${NoteModel.ID} LIKE :noteId")
-    suspend fun getNote(noteId: Int): NoteModel
 
     @Delete
     suspend fun deleteNote(note: NoteModel)

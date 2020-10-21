@@ -1,11 +1,8 @@
-package com.example.simplenote.model.repository
+package com.example.simplenote.model.repository.inteface
 
-import androidx.lifecycle.LiveData
 import com.example.simplenote.model.database.dbmodels.NoteModel
 
-interface Repository {
-
-    suspend fun readNote(noteId: Int) : NoteModel
+interface DAORepository {
 
     suspend fun deleteNote(note: NoteModel)
 

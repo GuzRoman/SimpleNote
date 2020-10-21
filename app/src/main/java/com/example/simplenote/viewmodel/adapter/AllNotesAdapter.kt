@@ -4,9 +4,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simplenote.R
 import com.example.simplenote.model.database.dbmodels.NoteModel
+import com.example.simplenote.view.fragments.AllNotesFragment
+import com.example.simplenote.view.fragments.AllNotesFragmentDirections
+import kotlinx.android.synthetic.main.item_notes.view.*
 
 class AllNotesAdapter: RecyclerView.Adapter<AllNotesAdapter.AllNotesViewHolder>() {
 
@@ -19,7 +23,6 @@ class AllNotesAdapter: RecyclerView.Adapter<AllNotesAdapter.AllNotesViewHolder>(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AllNotesViewHolder {
-
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_notes, parent, false)
         return AllNotesViewHolder(view)
     }
@@ -31,11 +34,15 @@ class AllNotesAdapter: RecyclerView.Adapter<AllNotesAdapter.AllNotesViewHolder>(
         holder.number.text = note.noteId.toString()
         holder.title.text = note.noteName
         holder.date.text = note.noteTime
+
+        holder.itemView.raw_layout.setOnClickListener {
+            val action = AllNotesFragmentDirections.actionAllNotesFragmentToNoteRedactor(note)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 
     fun setData(setNotes: List<NoteModel>){
         notes.addAll(setNotes)
         notifyDataSetChanged()
     }
-
 }

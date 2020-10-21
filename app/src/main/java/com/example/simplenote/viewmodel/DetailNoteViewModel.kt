@@ -12,11 +12,14 @@ import java.util.*
 
 class DetailNoteViewModel(application: Application) : AndroidViewModel(application) {
 
-    fun saveNote(noteTitle: String, noteText: String, noteDate: Date, oldNote: NoteModel?){
-        val note = oldNote ?: NoteModel(0,noteTitle, noteText, noteDate.toString())
+    fun saveNote(note: NoteModel){
         viewModelScope.launch(Dispatchers.IO) {
             repositoryImpl.saveNote(note)
         }
+    }
+
+    fun getCurrentTime(): String{
+        return repositoryImpl.getCurrentTime()
     }
 
     private val repositoryImpl: RepositoryImpl

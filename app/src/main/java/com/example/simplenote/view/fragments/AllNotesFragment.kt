@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.LifecycleOwner
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -47,9 +47,12 @@ class AllNotesFragment : Fragment() {
     }
 
     private fun setData() {
-        allNotesViewModel.notesList.observe(viewLifecycleOwner, Observer {
-            allNotesAdapter.setData(it)
+        allNotesViewModel.notesList.observe(viewLifecycleOwner, Observer {list ->
+            allNotesAdapter.setData(list)
         })
     }
+
+
+
 
 }
